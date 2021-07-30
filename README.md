@@ -10,10 +10,9 @@ Please run this script as super user (root) in the server.
 
 Steps
 
+The steps to run this scripts are available in the document attached:
 ```bash
-# git clone http://https://github.com/DarthMandL0R3/anima_iv-answers.git
-# chmod +x rogue.sh
-# ./rogue.sh
+rogue_task_command.txt
 ```
 
 ## Notice
