@@ -1,0 +1,27 @@
+
+█████████████████████████████████████████████████████████████████████████████████████████
+█▄─█▀▀▀█─▄█─▄▄─█▄─▄▄▀█▄─█─▄█─▄▄▄▄█─▄─▄─██▀▄─██─▄─▄─█▄─▄█─▄▄─█▄─▀█▄─▄███─▄▄▄▄█▄─▄███─▄▄▄▄█
+██─█─█─█─██─██─██─▄─▄██─▄▀██▄▄▄▄─███─████─▀─████─████─██─██─██─█▄▀─████▄▄▄▄─██─██▀█▄▄▄▄─█
+▀▀▄▄▄▀▄▄▄▀▀▄▄▄▄▀▄▄▀▄▄▀▄▄▀▄▄▀▄▄▄▄▄▀▀▄▄▄▀▀▄▄▀▄▄▀▀▄▄▄▀▀▄▄▄▀▄▄▄▄▀▄▄▄▀▀▄▄▀▀▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀
+          
+Workstation Push Commands
+=========================
+
+1. Create directory for workstation.sls
+# mkdir /srv/salt
+
+2. Prepare the SLS file (workstation.sls)
+# vi /srv/salt/workstations.sls
+
+3. Enable salt file_roots:
+# vi /etc/salt/master
+- Uncomment the following lines
+	file_roots:
+	base:
+	- /srv/salt
+
+4. Restart salt-master service to apply the changes:
+# systemctl restart salt-master.service
+
+5. Push the workstation.sls file to all minions:
+# salt '*' state.apply workstation
