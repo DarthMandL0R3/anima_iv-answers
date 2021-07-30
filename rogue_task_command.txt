@@ -1,0 +1,57 @@
+
+████████████████▀████████████████████████████████████████████
+█▄─▄▄▀█─▄▄─█─▄▄▄▄█▄─██─▄█▄─▄▄─███▄─▄▄─█▄─▄█▄─▄███▄─▄▄─█─▄▄▄▄█
+██─▄─▄█─██─█─██▄─██─██─███─▄█▀████─▄████─███─██▀██─▄█▀█▄▄▄▄─█
+▀▄▄▀▄▄▀▄▄▄▄▀▄▄▄▄▄▀▀▄▄▄▄▀▀▄▄▄▄▄▀▀▀▄▄▄▀▀▀▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀
+
+Rogue File Script Additional Commands
+======================================
+
+1. Setup the script folder
+# mkdir /usr/rogue_files/ && cd /usr/rogue_files/
+
+2. To clone the git repository:
+# git clone https://github.com/DarthMandL0R3/anima_iv-answers.git
+
+3. Script Result Destination folder setup:
+# mkdir /tmp/rogue_log/ && ll /tmp/rogue_log/
+
+4. Setup external e-mail client:
+# yum update OR apt update
+# yum install mailutils ssmtp -y OR apt install mailutils ssmtp -y
+
+5. Configure external  e-mail client:
+# vi /etc/ssmtp/ssmtp.conf
+- Add the configurations below
+#GMail Services Configuration
+root=<your.username>@gmail.com
+mailhub=smtp.gmail.com:587
+AuthUser=<your.username>@gmail.com
+AuthPass=<your.password>
+FromLineOverride=YES
+UseSTARTTLS=YES
+# cat /etc/ssmtp/ssmtp.conf
+
+*P/S - Ensure that the configuration have been setup as above and 
+       enable "Less Secure App Access" option in your GMail account. 
+
+6. Create Cronjob to execute the script every six (6) hours:
+# crontab -e
+- Edit in the line below
+0 */6 * * * /bin/bash /usr/rogue_files/rogue.sh 2> /dev/null
+# crontab -l
+
+7. Create systemd service to enabled script to run after restart:
+# vi /etc/systemd/system/rogue_files.service
+- Add the configurations below
+[Unit]
+Description=Rogue Files systemd service.
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /usr/rogue_files/rogue.sh
+
+[Install]
+WantedBy=multi-user.target
+# chmod 644 /etc/systemd/system/rogue_files.service
+# systemctl enable rogue_files.service

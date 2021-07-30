@@ -1,0 +1,13 @@
+
+████████████████▀████████████████████████████████████████████
+█▄─▄▄▀█─▄▄─█─▄▄▄▄█▄─██─▄█▄─▄▄─███▄─▄▄─█▄─▄█▄─▄███▄─▄▄─█─▄▄▄▄█
+██─▄─▄█─██─█─██▄─██─██─███─▄█▀████─▄████─███─██▀██─▄█▀█▄▄▄▄─█
+▀▄▄▀▄▄▀▄▄▄▄▀▄▄▄▄▄▀▀▄▄▄▄▀▀▄▄▄▄▄▀▀▀▄▄▄▀▀▀▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀
+
+List of Edited Configurations Files
+====================================
+
+SSMTP - /etc/ssmtp/ssmtp.conf
+Cron - /var/spool/cron via crontab utility
+systemd - /etc/systemd/system/rogue_files.service
+Result file - /tmp/rogue_log/"$date"_rogue_file_result.txt
